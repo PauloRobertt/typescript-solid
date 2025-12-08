@@ -3,7 +3,7 @@ type StatusCart = 'Open' | 'Closed';
 
 class ShoppingCart {
   private _items: CartItem[] = [];
-  private orderStatus: StatusCart = 'Open';
+  private _orderStatus: StatusCart = 'Open';
 
   AddItem(product: CartItem): void {
     this._items.push(product);
@@ -32,10 +32,6 @@ class ShoppingCart {
     this.clearCart();
   }
 
-  viewStatus(): void {
-    console.log(this.orderStatus);
-  }
-
   isEmpty(): boolean {
     return this._items.length === 0;
   }
@@ -50,6 +46,10 @@ class ShoppingCart {
 
   get items(): readonly CartItem[] {
     return this._items;
+  }
+
+  get orderStatus(): StatusCart {
+    return this._orderStatus;
   }
 }
 
